@@ -14,18 +14,24 @@ class ViewController: UIViewController {
   @IBOutlet weak var leftTextField: UITextField!
   @IBOutlet weak var rightTextField: UITextField!
   
-  @IBAction func textedInLeftTextField(_ sender: Any) {
-    if let number = Double(leftTextField.text ?? "") {
-      rightTextField.text = String(format: "%.2f", number * converter.multiplyer)
+  func convertAndWriteNumber(stringNumber: String?, textField: UITextField, direct: Bool) {
+    if let number = Double(stringNumber ?? "") {
+      let value = number * (direct ? converter.multiplyer : 1.0 / converter.multiplyer)
+      textField.text = String(format: "%.1f", value)
     } else {
-      rightTextField.text = nil
+      textField.text = nil
     }
+  }
+  
+  @IBAction func inLeftTextFieldTexted(_ sender: Any) {
+    convertAndWriteNumber(stringNumber: leftTextField.text, textField: rightTextField, direct: true)
+  }
+  
+  @IBAction func inRightTextFieldTexted(_ sender: Any) {
+    convertAndWriteNumber(stringNumber: rightTextField.text, textField: leftTextField, direct: false)
   }
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    
-    leftTextField.placeholder = "\(converter.fromUnit)".capitalized
-    rightTextField.placeholder = "\(converter.toUnit)".capitalized
   }
 }

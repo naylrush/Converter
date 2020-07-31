@@ -16,7 +16,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="YBm-0g-evx">
-                                <rect key="frame" x="20" y="244" width="374" height="50"/>
+                                <rect key="frame" x="20" y="323" width="374" height="50"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Miles" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="DRG-gR-YFy">
                                         <rect key="frame" x="0.0" y="0.0" width="172" height="50"/>
@@ -40,14 +40,14 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="YBm-0g-evx" secondAttribute="trailing" constant="20" id="0Ns-ij-OJm"/>
+                            <constraint firstItem="YBm-0g-evx" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="-100" id="QW7-SY-pIf"/>
                             <constraint firstItem="YBm-0g-evx" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="jg3-Us-HSf"/>
-                            <constraint firstItem="YBm-0g-evx" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="200" id="rJI-iN-oZ0"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
-                        <outlet property="LeftTextField" destination="DRG-gR-YFy" id="A8F-a0-itb"/>
-                        <outlet property="RightTextField" destination="w2F-y9-aAY" id="0ea-aO-PDh"/>
+                        <outlet property="leftTextField" destination="DRG-gR-YFy" id="A8F-a0-itb"/>
+                        <outlet property="rightTextField" destination="w2F-y9-aAY" id="0ea-aO-PDh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

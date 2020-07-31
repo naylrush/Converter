@@ -9,20 +9,23 @@
 import UIKit
 
 class ViewController: UIViewController {
-  @IBOutlet weak var LeftTextField: UITextField!
-  @IBOutlet weak var RightTextField: UITextField!
+  var converter = Converter(fromUnit: .mile, toUnit: .meter)
+  
+  @IBOutlet weak var leftTextField: UITextField!
+  @IBOutlet weak var rightTextField: UITextField!
   
   @IBAction func textedInLeftTextField(_ sender: Any) {
-    let multiplier = distanceConvertingMultiplier(from: .mile, to: .meter)
-    if let number = Double(LeftTextField.text ?? "") {
-      RightTextField.text = String(format: "%.2f", number * multiplier)
+    if let number = Double(leftTextField.text ?? "") {
+      rightTextField.text = String(format: "%.2f", number * converter.multiplyer)
     } else {
-      RightTextField.text = nil
+      rightTextField.text = nil
     }
   }
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    // Do any additional setup after loading the view.
+    
+    leftTextField.placeholder = "\(converter.fromUnit)".capitalized
+    rightTextField.placeholder = "\(converter.toUnit)".capitalized
   }
 }

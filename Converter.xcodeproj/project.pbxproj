@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6D05E22E24D444B900F6BC09 /* Converter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D05E22D24D444B900F6BC09 /* Converter.swift */; };
+		6D05E22F24D4484800F6BC09 /* Converter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D05E22D24D444B900F6BC09 /* Converter.swift */; };
 		6D82873E24D34C9F001DE5B6 /* DistanceUnit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D82873D24D34C9F001DE5B6 /* DistanceUnit.swift */; };
 		6D82873F24D34F8B001DE5B6 /* DistanceUnit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D82873D24D34C9F001DE5B6 /* DistanceUnit.swift */; };
 		6D82874024D37DC8001DE5B6 /* ConverterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6DAE2DE824D33D5D00AB2A4F /* ConverterTests.swift */; };
@@ -30,6 +32,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		6D05E22D24D444B900F6BC09 /* Converter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Converter.swift; sourceTree = "<group>"; };
 		6D82873D24D34C9F001DE5B6 /* DistanceUnit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DistanceUnit.swift; sourceTree = "<group>"; };
 		6DAE2DCB24D3319000AB2A4F /* Converter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Converter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6DAE2DCE24D3319000AB2A4F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -109,6 +112,7 @@
 			isa = PBXGroup;
 			children = (
 				6D82873D24D34C9F001DE5B6 /* DistanceUnit.swift */,
+				6D05E22D24D444B900F6BC09 /* Converter.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -233,6 +237,7 @@
 				6DAE2DCF24D3319000AB2A4F /* AppDelegate.swift in Sources */,
 				6DAE2DD124D3319000AB2A4F /* SceneDelegate.swift in Sources */,
 				6D82873E24D34C9F001DE5B6 /* DistanceUnit.swift in Sources */,
+				6D05E22E24D444B900F6BC09 /* Converter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -242,6 +247,7 @@
 			files = (
 				6D82874024D37DC8001DE5B6 /* ConverterTests.swift in Sources */,
 				6DAE2DF024D33D9000AB2A4F /* Controller.swift in Sources */,
+				6D05E22F24D4484800F6BC09 /* Converter.swift in Sources */,
 				6D82873F24D34F8B001DE5B6 /* DistanceUnit.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -28,6 +28,7 @@
                                                 <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
                                                 <connections>
                                                     <action selector="inLeftTextFieldTexted:" destination="BYZ-38-t0r" eventType="editingChanged" id="Vqg-PI-Ge5"/>
+                                                    <action selector="touchedOnTextField:" destination="BYZ-38-t0r" eventType="touchDown" id="Zbl-I1-eAi"/>
                                                 </connections>
                                             </textField>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="center" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hzQ-AI-N7S" customClass="ChangeUnitButton" customModule="Converter" customModuleProvider="target">
@@ -47,6 +48,9 @@
                                                         </fragment>
                                                     </attributedString>
                                                 </state>
+                                                <connections>
+                                                    <action selector="touchedUpLeftChangeUnitButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Ahc-Fz-D09"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="linkColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -86,6 +90,7 @@
                                                 <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
                                                 <connections>
                                                     <action selector="inRightTextFieldTexted:" destination="BYZ-38-t0r" eventType="editingChanged" id="LVd-pi-pde"/>
+                                                    <action selector="touchedOnTextField:" destination="BYZ-38-t0r" eventType="touchDown" id="Ffq-oi-Tv4"/>
                                                 </connections>
                                             </textField>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="center" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4ND-MB-Kzo" customClass="ChangeUnitButton" customModule="Converter" customModuleProvider="target">
@@ -105,6 +110,9 @@
                                                         </fragment>
                                                     </attributedString>
                                                 </state>
+                                                <connections>
+                                                    <action selector="touchedUpRightChangeUnitButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="EFb-kN-4sY"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="linkColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -122,14 +130,20 @@
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="clipsToBounds" value="YES"/>
                                 </userDefinedRuntimeAttributes>
                             </view>
+                            <pickerView hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0ku-ip-JB3">
+                                <rect key="frame" x="0.0" y="630" width="414" height="216"/>
+                            </pickerView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="v4C-Ga-UKg" firstAttribute="centerY" secondItem="DRG-gR-YFy" secondAttribute="centerY" id="3gt-v8-uhJ"/>
+                            <constraint firstAttribute="bottom" secondItem="0ku-ip-JB3" secondAttribute="bottom" constant="50" id="BQl-GH-4bO"/>
                             <constraint firstItem="9o2-au-3n7" firstAttribute="centerY" secondItem="oBi-vu-PHw" secondAttribute="centerY" id="LlH-om-tuo"/>
                             <constraint firstItem="oBi-vu-PHw" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="SAN-27-vcd"/>
+                            <constraint firstItem="0ku-ip-JB3" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="cPZ-Bz-ctd"/>
                             <constraint firstItem="3Nv-Zt-4GG" firstAttribute="leading" secondItem="r8C-08-IIT" secondAttribute="trailing" constant="37" id="cWU-9a-O7C"/>
                             <constraint firstItem="oBi-vu-PHw" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="-50" id="j6H-Bq-a3k"/>
+                            <constraint firstItem="0ku-ip-JB3" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="lDx-da-FgX"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="9o2-au-3n7" secondAttribute="trailing" constant="20" id="q5e-tL-gUV"/>
                             <constraint firstItem="v4C-Ga-UKg" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="qJa-4c-ipl"/>
                             <constraint firstItem="v4C-Ga-UKg" firstAttribute="leading" secondItem="oBi-vu-PHw" secondAttribute="trailing" constant="10" id="qhk-lx-ah3"/>
@@ -137,8 +151,11 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="leftChangeUnitButton" destination="hzQ-AI-N7S" id="TQF-LH-kLM"/>
                         <outlet property="leftTextField" destination="DRG-gR-YFy" id="A8F-a0-itb"/>
+                        <outlet property="rightChangeUnitButton" destination="4ND-MB-Kzo" id="sCM-IW-0IJ"/>
                         <outlet property="rightTextField" destination="4NF-cC-sga" id="8GG-dr-GTR"/>
+                        <outlet property="unitPicker" destination="0ku-ip-JB3" id="HEI-le-iN0"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

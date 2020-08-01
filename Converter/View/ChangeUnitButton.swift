@@ -13,6 +13,8 @@ class ChangeUnitButton: UIButton {
   let arrow = UIImage(systemName: "arrow.up.and.down")!
   var arrowIcon: UIImageView!
   
+  var side: Side!
+  
   override func prepareForInterfaceBuilder() {
     addArrowIcon()
   }

@@ -62,6 +62,7 @@
                                     <constraint firstAttribute="bottom" secondItem="r8C-08-IIT" secondAttribute="bottom" constant="1" id="3nm-Pb-4BS"/>
                                     <constraint firstItem="r8C-08-IIT" firstAttribute="top" secondItem="oBi-vu-PHw" secondAttribute="top" constant="1" id="BUy-PZ-zO1"/>
                                     <constraint firstItem="r8C-08-IIT" firstAttribute="leading" secondItem="oBi-vu-PHw" secondAttribute="leading" constant="1" id="elr-El-I9e"/>
+                                    <constraint firstItem="r8C-08-IIT" firstAttribute="centerY" secondItem="oBi-vu-PHw" secondAttribute="centerY" id="jpB-K8-sfQ"/>
                                     <constraint firstAttribute="height" constant="100" id="u6M-06-K0h"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
@@ -131,15 +132,17 @@
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <pickerView hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0ku-ip-JB3">
-                                <rect key="frame" x="0.0" y="630" width="414" height="216"/>
+                                <rect key="frame" x="0.0" y="600" width="414" height="216"/>
                             </pickerView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="v4C-Ga-UKg" firstAttribute="centerY" secondItem="DRG-gR-YFy" secondAttribute="centerY" id="3gt-v8-uhJ"/>
-                            <constraint firstAttribute="bottom" secondItem="0ku-ip-JB3" secondAttribute="bottom" constant="50" id="BQl-GH-4bO"/>
+                            <constraint firstItem="0ku-ip-JB3" firstAttribute="top" secondItem="oBi-vu-PHw" secondAttribute="bottom" constant="30" id="6Lc-1p-4pm"/>
+                            <constraint firstAttribute="bottom" secondItem="0ku-ip-JB3" secondAttribute="bottom" constant="80" id="BQl-GH-4bO"/>
                             <constraint firstItem="9o2-au-3n7" firstAttribute="centerY" secondItem="oBi-vu-PHw" secondAttribute="centerY" id="LlH-om-tuo"/>
                             <constraint firstItem="oBi-vu-PHw" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="SAN-27-vcd"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="0ku-ip-JB3" secondAttribute="bottom" constant="150" id="b70-0w-7Nx"/>
                             <constraint firstItem="0ku-ip-JB3" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="cPZ-Bz-ctd"/>
                             <constraint firstItem="3Nv-Zt-4GG" firstAttribute="leading" secondItem="r8C-08-IIT" secondAttribute="trailing" constant="37" id="cWU-9a-O7C"/>
                             <constraint firstItem="oBi-vu-PHw" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="-50" id="j6H-Bq-a3k"/>
@@ -147,8 +150,35 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="9o2-au-3n7" secondAttribute="trailing" constant="20" id="q5e-tL-gUV"/>
                             <constraint firstItem="v4C-Ga-UKg" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="qJa-4c-ipl"/>
                             <constraint firstItem="v4C-Ga-UKg" firstAttribute="leading" secondItem="oBi-vu-PHw" secondAttribute="trailing" constant="10" id="qhk-lx-ah3"/>
+                            <constraint firstItem="oBi-vu-PHw" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="-100" id="x4I-50-JG5"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="b70-0w-7Nx"/>
+                                <exclude reference="x4I-50-JG5"/>
+                                <exclude reference="6Lc-1p-4pm"/>
+                                <exclude reference="BQl-GH-4bO"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=compact-widthClass=regular">
+                            <mask key="constraints">
+                                <exclude reference="j6H-Bq-a3k"/>
+                                <include reference="x4I-50-JG5"/>
+                                <include reference="6Lc-1p-4pm"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=regular-widthClass=compact">
+                            <mask key="constraints">
+                                <include reference="j6H-Bq-a3k"/>
+                                <include reference="BQl-GH-4bO"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=regular-widthClass=regular">
+                            <mask key="constraints">
+                                <include reference="b70-0w-7Nx"/>
+                            </mask>
+                        </variation>
                     </view>
                     <connections>
                         <outlet property="leftChangeUnitButton" destination="hzQ-AI-N7S" id="TQF-LH-kLM"/>

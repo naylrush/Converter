@@ -40,4 +40,13 @@ class ChangeUnitButton: UIButton {
     arrowIcon.tintColor = #colorLiteral(red: 0.4756349325, green: 0.4756467342, blue: 0.4756404161, alpha: 1)
     addSubview(arrowIcon)
   }
+  
+  override func setTitle(_ title: String?, for state: UIControl.State) {
+    let paragraphStyle = NSMutableParagraphStyle()
+    paragraphStyle.firstLineHeadIndent = 5.0
+    if let title = title {
+      let attributedText = NSAttributedString(string: title, attributes: [NSAttributedString.Key.paragraphStyle: paragraphStyle])
+      self.setAttributedTitle(attributedText, for: state)
+    }
+  }
 }

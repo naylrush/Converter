@@ -3,6 +3,7 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -135,6 +136,21 @@
                             <pickerView hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0ku-ip-JB3">
                                 <rect key="frame" x="0.0" y="600" width="414" height="216"/>
                             </pickerView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8i7-4N-Kdb" userLabel="Exchange Units">
+                                <rect key="frame" x="192" y="409.5" width="30" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="M4d-el-rPJ"/>
+                                    <constraint firstAttribute="width" constant="30" id="WJa-gO-EZR"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                <color key="tintColor" red="0.4756349325" green="0.47564673419999998" blue="0.47564041610000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal">
+                                    <imageReference key="image" image="repeat" catalog="system" symbolScale="medium" renderingMode="template"/>
+                                </state>
+                                <connections>
+                                    <action selector="exchangeUnits:" destination="BYZ-38-t0r" eventType="touchUpInside" id="kpG-Qa-TEt"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -142,11 +158,13 @@
                             <constraint firstItem="v4C-Ga-UKg" firstAttribute="centerY" secondItem="DRG-gR-YFy" secondAttribute="centerY" id="3gt-v8-uhJ"/>
                             <constraint firstItem="0ku-ip-JB3" firstAttribute="top" secondItem="oBi-vu-PHw" secondAttribute="bottom" constant="30" id="6Lc-1p-4pm"/>
                             <constraint firstAttribute="bottom" secondItem="0ku-ip-JB3" secondAttribute="bottom" constant="80" id="BQl-GH-4bO"/>
+                            <constraint firstItem="8i7-4N-Kdb" firstAttribute="centerY" secondItem="hzQ-AI-N7S" secondAttribute="centerY" id="Jqj-mG-a8B"/>
                             <constraint firstItem="9o2-au-3n7" firstAttribute="centerY" secondItem="oBi-vu-PHw" secondAttribute="centerY" id="LlH-om-tuo"/>
                             <constraint firstItem="oBi-vu-PHw" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="SAN-27-vcd"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="0ku-ip-JB3" secondAttribute="bottom" constant="150" id="b70-0w-7Nx"/>
                             <constraint firstItem="0ku-ip-JB3" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="cPZ-Bz-ctd"/>
                             <constraint firstItem="3Nv-Zt-4GG" firstAttribute="leading" secondItem="r8C-08-IIT" secondAttribute="trailing" constant="37" id="cWU-9a-O7C"/>
+                            <constraint firstItem="8i7-4N-Kdb" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="hob-qh-2uR"/>
                             <constraint firstItem="oBi-vu-PHw" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="-50" id="j6H-Bq-a3k"/>
                             <constraint firstItem="0ku-ip-JB3" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="lDx-da-FgX"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="9o2-au-3n7" secondAttribute="trailing" constant="20" id="q5e-tL-gUV"/>
@@ -203,6 +221,7 @@
         </designable>
     </designables>
     <resources>
+        <image name="repeat" catalog="system" width="128" height="99"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

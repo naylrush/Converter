@@ -101,6 +101,20 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     }
   }
   
+  // ExhangeButton
+  @IBAction func exchangeUnits(_ sender: Any) {
+    guard let leftButtonUnit = leftChangeUnitButton.titleLabel?.text else { return }
+    guard let rightButtonUnit = rightChangeUnitButton.titleLabel?.text else { return }
+    
+    leftChangeUnitButton.setTitle(rightButtonUnit, for: .normal)
+    rightChangeUnitButton.setTitle(leftButtonUnit, for: .normal)
+    
+    // Just update any button
+    converter = Converter(fromUnit: converter.toUnit, toUnit: converter.fromUnit)
+    textInLeftField("update")
+  }
+  
+  
   // Controller stuff
   override func viewDidLoad() {
     super.viewDidLoad()

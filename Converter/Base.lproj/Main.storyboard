@@ -28,7 +28,7 @@
                                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                                 <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
                                                 <connections>
-                                                    <action selector="inLeftTextFieldTexted:" destination="BYZ-38-t0r" eventType="editingChanged" id="Vqg-PI-Ge5"/>
+                                                    <action selector="textInLeftField:" destination="BYZ-38-t0r" eventType="editingChanged" id="Vqg-PI-Ge5"/>
                                                     <action selector="touchedOnTextField:" destination="BYZ-38-t0r" eventType="touchDown" id="Zbl-I1-eAi"/>
                                                 </connections>
                                             </textField>
@@ -91,7 +91,7 @@
                                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                                 <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
                                                 <connections>
-                                                    <action selector="inRightTextFieldTexted:" destination="BYZ-38-t0r" eventType="editingChanged" id="LVd-pi-pde"/>
+                                                    <action selector="textInRightField:" destination="BYZ-38-t0r" eventType="editingChanged" id="LVd-pi-pde"/>
                                                     <action selector="touchedOnTextField:" destination="BYZ-38-t0r" eventType="touchDown" id="Ffq-oi-Tv4"/>
                                                 </connections>
                                             </textField>

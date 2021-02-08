@@ -9,11 +9,8 @@
 import UIKit
 
 class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
-  // ConverterViews
+  // Converter
   var converter = Converter(fromUnit: .mile, toUnit: .meter)
-  
-  @IBOutlet weak var leftTextField: UITextField!
-  @IBOutlet weak var rightTextField: UITextField!
   
   func convertAndWriteNumber(stringNumber: String?, textField: UITextField, direct: Bool) {
     if let number = Double(stringNumber ?? "") {
@@ -25,11 +22,15 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     }
   }
   
-  @IBAction func inLeftTextFieldTexted(_ sender: Any) {
+  // TextFields
+  @IBOutlet weak var leftTextField: UITextField!
+  @IBOutlet weak var rightTextField: UITextField!
+  
+  @IBAction func textInLeftField(_ sender: Any) {
     convertAndWriteNumber(stringNumber: leftTextField.text, textField: rightTextField, direct: true)
   }
   
-  @IBAction func inRightTextFieldTexted(_ sender: Any) {
+  @IBAction func textInRightField(_ sender: Any) {
     convertAndWriteNumber(stringNumber: rightTextField.text, textField: leftTextField, direct: false)
   }
   
@@ -37,7 +38,7 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     deselectChangeUnitButtons()
   }
   
-  // UnitPicker
+  // UnitPicker & Buttons
   var units: [DistanceUnit]!
   var unitsNames: [String]!
   
@@ -45,28 +46,31 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
   
   @IBOutlet weak var leftChangeUnitButton: ChangeUnitButton!
   @IBOutlet weak var rightChangeUnitButton: ChangeUnitButton!
-  
-  var changeUnitButtons: [ChangeUnitButton]!
 
-  var changeUnitButtonTouchedUp: Side!
+  var activeChangeUnitButton: ChangeUnitButton!
   
   @IBAction func touchedUpLeftChangeUnitButton(_ sender: Any) {
-    touchedChangeUnitButton(.left)
+    activeChangeUnitButton = leftChangeUnitButton
+    changeUnitButtonWasTouchedUp()
   }
   
   @IBAction func touchedUpRightChangeUnitButton(_ sender: Any) {
-    touchedChangeUnitButton(.right)
+    activeChangeUnitButton = rightChangeUnitButton
+    changeUnitButtonWasTouchedUp()
   }
   
-  func touchedChangeUnitButton(_ side: Side) {
+  func changeUnitButtonWasTouchedUp() {
     view.endEditing(true)
     unitPicker.isHidden = false
-    changeUnitButtonTouchedUp = side
     
-    var changeUnitButtons = self.changeUnitButtons!
-    changeUnitButtons[side.rawValue].backgroundColor = #colorLiteral(red: 0.8374180198, green: 0.8374378085, blue: 0.8374271393, alpha: 1)
-    changeUnitButtons.remove(at: side.rawValue)
-    changeUnitButtons[0].backgroundColor = #colorLiteral(red: 0.921431005, green: 0.9214526415, blue: 0.9214410186, alpha: 1)
+    // select button's current unit
+    if let buttonUnitName = activeChangeUnitButton.titleLabel?.text {
+      if let row = unitsNames.firstIndex(of: buttonUnitName) {
+        unitPicker.selectRow(row, inComponent: 0, animated: true)
+      }
+    }
+    
+    activeChangeUnitButton.backgroundColor = #colorLiteral(red: 0.8374180198, green: 0.8374378085, blue: 0.8374271393, alpha: 1)
   }
   
   func numberOfComponents(in pickerView: UIPickerView) -> Int {
@@ -82,16 +86,16 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
   }
 
   func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-    let button = changeUnitButtons[changeUnitButtonTouchedUp.rawValue]
-    button.setTitle(unitsNames[row], for: .normal)
+    activeChangeUnitButton.setTitle(unitsNames[row], for: .normal)
 
-    switch button.side {
+    // update unit and reconvert values
+    switch activeChangeUnitButton.side {
     case .left:
       converter = Converter(fromUnit: units[row], toUnit: converter.toUnit)
-      inLeftTextFieldTexted("update")
+      textInLeftField("update")
     case .right:
       converter = Converter(fromUnit: converter.fromUnit, toUnit: units[row])
-      inRightTextFieldTexted("update")
+      textInRightField("update")
     default:
       abort()
     }
@@ -100,21 +104,20 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
   // Controller stuff
   override func viewDidLoad() {
     super.viewDidLoad()
+    
     unitPicker.delegate = self
     unitPicker.dataSource = self
     
     units = metricUnits + imperialUnits
     unitsNames = units.map { "\($0)".capitalized }
     
+    leftChangeUnitButton.side = .left
+    rightChangeUnitButton.side = .right
+    
     let hideAllTap = UITapGestureRecognizer(target: self, action: #selector(hideAll))
     view.addGestureRecognizer(hideAllTap)
     
     customizeKeyboard()
-    
-    leftChangeUnitButton.side = .left
-    rightChangeUnitButton.side = .right
-    
-    changeUnitButtons = [leftChangeUnitButton, rightChangeUnitButton]
   }
   
   func customizeKeyboard() {

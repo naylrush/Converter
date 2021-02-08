@@ -30,8 +30,8 @@ class ChangeUnitButton: UIButton {
   }
   
   func resizeArrowIcon() {
-    arrowIcon.frame = CGRect(origin: CGPoint(x: frame.width - 20.0,
-                                             y: frame.height / 2.0 - 10.0),
+    arrowIcon.frame = CGRect(origin: CGPoint(x: frame.width - arrow.size.width - 3.0, // arrow has about 2.0 point of blank space
+                                             y: (frame.height - arrow.size.height) / 2),
                              size: arrow.size)
   }
   

@@ -17,7 +17,7 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
   
   func convertAndWriteNumber(stringNumber: String?, textField: UITextField, direct: Bool) {
     if let number = Double(stringNumber ?? "") {
-      var value = number * (direct ? converter.multiplyer : 1.0 / converter.multiplyer)
+      var value = number * (direct ? converter.multiplier : 1.0 / converter.multiplier)
       value = Double(String(format: "%.2f", value))!
       textField.text = value == Double(Int(value)) ? "\(Int(value))" : "\(value)"
     } else {

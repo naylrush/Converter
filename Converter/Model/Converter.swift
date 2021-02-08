@@ -12,7 +12,7 @@ class Converter {
   public private(set) var fromUnit: DistanceUnit
   public private(set) var toUnit: DistanceUnit
   
-  var multiplyer: Double {
+  var multiplier: Double {
     get {
       return distanceConvertingMultiplier(from: fromUnit, to: toUnit)
     }

@@ -48,7 +48,8 @@ class ChangeUnitButton: UIButton {
     paragraphStyle.firstLineHeadIndent = 5.0
     if let title = title {
       let attributedText = NSAttributedString(string: title,
-                                              attributes: [NSAttributedString.Key.paragraphStyle: paragraphStyle])
+                                              attributes: [NSAttributedString.Key.paragraphStyle: paragraphStyle,
+                                                           NSAttributedString.Key.foregroundColor: #colorLiteral(red: 0.1298420429, green: 0.1298461258, blue: 0.1298439503, alpha: 1)])
       self.setAttributedTitle(attributedText, for: state)
     }
   }
